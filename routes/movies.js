@@ -9,7 +9,7 @@ router.post('/', (req, res, next) => {
     const movie = new Movie({
         title:title,
         category:category,
-        country,country,
+        country:country,
         year:year,
         imdb_score:imdb_score
     });*/
