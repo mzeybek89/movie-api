@@ -49,7 +49,24 @@ router.get('/:movieId?', (req, res, next) => {
           .catch((err)=>{res.json(err.message)});
    else//tamamını bul
 
-      Movie.find({})
+
+
+      Movie.aggregate([
+          {
+            $lookup:{
+               from: 'directors',
+               localField: 'director_id',
+               foreignField: '_id',
+               as: 'director'
+            }
+         },
+         {
+            $unwind: {
+               path: "$director",
+               preserveNullAndEmptyArrays:true  //eşleşme olmasa dahi getir. False olursa yönetmeni olmayan filmlistelemez
+            }
+         }
+      ])
           .then((movies)=>{res.json(movies)})
           .catch((err)=>{res.json(err.message)});
 

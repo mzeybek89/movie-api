@@ -24,16 +24,6 @@ router.post('/', (req, res, next) => {
 
 
 
-/* LIST TOP 10  */ //best 10 movies
-router.get('/:directorId/best10movies', (req, res, next) => {
-
-    const directorId = req.params.directorId;
-
-    Director.find({}).limit(10).sort({imdb_score:-1})
-        .then((movies)=>{res.json(movies)})
-        .catch((err)=>{res.json(err.message)});
-});
-
 
 /* LIST  */ //list director  all or id
 router.get('/:directorId?', (req, res, next) => {
@@ -62,12 +52,7 @@ router.get('/:directorId?', (req, res, next) => {
                     preserveNullAndEmptyArrays:true  //eşleşme olmasa dahi getir. False olursa filmi olmayan yönetmenleri listelemez
                 }
             }
-            /*,{
-                $project: {
-                    name:'$name',
-                    movie : '$movie.title'
-                }
-            }*/
+
         ])
             .then((movies)=>{res.json(movies)})
             .catch((err)=>{res.json(err.message)});
@@ -90,12 +75,7 @@ router.get('/:directorId?', (req, res, next) => {
                     preserveNullAndEmptyArrays:true  //eşleşme olmasa dahi getir. False olursa filmi olmayan yönetmenleri listelemez
                 }
             }
-            /*,{
-                $project: {
-                    name:'$name',
-                    movie : '$movie.title'
-                }
-            }*/
+
         ])
           .then((movies)=>{res.json(movies)})
           .catch((err)=>{res.json(err.message)});
