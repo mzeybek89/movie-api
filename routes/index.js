@@ -1,17 +1,21 @@
 const express = require('express');
 const router = express.Router();
+<<<<<<< HEAD
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
 //Model
 const User = require('../models/User');
+=======
+>>>>>>> b19207e9a9a19621b9aa06c2cc681aaf33daa6d5
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
 
+<<<<<<< HEAD
 
 /* POST home page. */
 router.post('/auth', (req, res, next) => {
@@ -82,4 +86,6 @@ router.post('/register', (req, res, next) => {
 
 });
 
+=======
+>>>>>>> b19207e9a9a19621b9aa06c2cc681aaf33daa6d5
 module.exports = router;

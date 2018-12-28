@@ -13,6 +13,7 @@ const app = express();
 // db connection
 const db = require('./helpers/db')();
 
+<<<<<<< HEAD
 //config
 const config = require('./config');
 app.set('apiSecretKey',config.apiSecretKey);
@@ -23,6 +24,11 @@ const veriyToken = require('./middleware/verify-token');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+=======
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+>>>>>>> b19207e9a9a19621b9aa06c2cc681aaf33daa6d5
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,7 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+<<<<<<< HEAD
 app.use('/api',veriyToken);
+=======
+>>>>>>> b19207e9a9a19621b9aa06c2cc681aaf33daa6d5
 app.use('/api/movies', moviesRouter);
 app.use('/api/directors', directorsRouter);
 
