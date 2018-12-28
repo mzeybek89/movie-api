@@ -44,7 +44,7 @@ router.post('/auth', (req, res, next) => {
                      const token = jwt.sign(
                          payload,
                          req.app.get('apiSecretKey'),
-                         {expiresIn:720} //dk cinsinden, 12 saat
+                         {expiresIn:"720h"} //dk cinsinden, 12 saat
                      );
 
                      res.json({
