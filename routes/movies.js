@@ -17,8 +17,9 @@ router.post('/', (req, res, next) => {
    const movie = new Movie(req.body);  //bu şekide ne gelirse onu kaydederiz
 
    movie.save()
-       .then((data)=>{res.json({status:"created",code:1})})
-       .catch((err)=>{res.json(err.errors.title.message)});
+       //.then((data)=>{res.json({status:"created",code:1})})
+       .then((data)=>{res.json(data)})
+       .catch((err)=>{next({message:err.errors.title.message,code:93})});
 
 });
 

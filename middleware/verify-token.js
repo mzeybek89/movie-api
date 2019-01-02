@@ -5,17 +5,17 @@ module.exports = (req,res,next)=>{
     const token = req.headers['x-access-token'] || req.body.token || req.query.token;
 
     if(!token){
-        res.json({
-            status:false,
-            message:"Token Not Found"
+        next({
+            message:"Token not found",
+            code:97
         });
     }
     else{
         jwt.verify(token,req.app.get('apiSecretKey'),(err,decoded)=>{
            if(err)
-               res.json({
-                   status:false,
-                   message:"Token not verifed"
+               next({
+                   message:"Token not verifed",
+                   code:98
                });
            else
                 req.decode = decoded;
