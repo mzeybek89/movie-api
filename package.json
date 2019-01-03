@@ -18,11 +18,12 @@
     "mongoose": "^5.4.1",
     "morgan": "~1.9.0",
     "node-gyp": "^3.8.0",
-    "pug": "^2.0.3"
-  },
-  "devDependencies": {
+    "pug": "^2.0.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+
   }
 }
