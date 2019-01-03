@@ -17,7 +17,8 @@ router.post('/', (req, res, next) => {
     const director = new Director(req.body);  //bu şekide ne gelirse onu kaydederiz
 
     director.save()
-        .then((data)=>{res.json({status:"created",code:1})})
+        //.then((data)=>{res.json({status:"created",code:1})})
+        .then((data)=>{res.json(data)})
         .catch((err)=>{res.json(err.errors.title.message)});
 
 });
@@ -45,16 +46,10 @@ router.get('/:directorId?', (req, res, next) => {
                     foreignField: 'director_id',
                     as: 'movie'
                 }
-            },
-            {
-                $unwind: {
-                    path: "$_id", //$movie dersem movieleri yönetmen altında array gibi değilde her biri ayrı kayıt gibi çeker
-                    preserveNullAndEmptyArrays:true  //eşleşme olmasa dahi getir. False olursa filmi olmayan yönetmenleri listelemez
-                }
             }
 
         ])
-            .then((movies)=>{res.json(movies)})
+            .then((director)=>{res.json(director[0])})
             .catch((err)=>{res.json(err.message)});
 
     else//tamamını bul
