@@ -92,7 +92,7 @@ describe('Director Api Test',()=>{
             .end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.a('object');
-                res.body.should.have.property('status','deleted');
+                res.body.should.have.property('status','deleted...');
                 done();
             });
     });
