@@ -10,7 +10,7 @@ const User = require('../models/User');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Movie-Api' ,link:"https://github.com/mzeybek89/movie-api"});
 });
 
 
